@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>Hello</p>
+        <!--  -->
+    </div>
+    <div id="app">
+        <div v-if="showBooks">
+            <p>{{author}} the author of {{title}} is {{age}}yrs old.</p>
+
+        </div>
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-if="!showBooks">Show Books</spanv-if>
+        </button>
+
+        <!-- =========CLICK EVENTS=========== -->
+
+        <button v-on:click="age++">Increase age</button>
+        <button v-on:click="age--">Decrease age</button>
+
+        <!-- ============CHANGING OF STATE DYNAMICALLY=========== -->
+        <button @click="changeTitle('Lord of the ring')">Waoooo!!!</button>
+
+        <!-- ===========cONDITIONAL RENDERING============ -->
+        <div v-if='false'>
+            <p>{{author}} the author of {{title}} is {{age}}yrs old.</p>
+
+        </div>
+        </div>
+
+        <script src="index.js"></script>
+</body>
+
+</html>

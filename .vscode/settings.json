@@ -1,0 +1,7 @@
+{
+  "editor.fontWeight": "500",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "Fira Code",
+  "files.autoSave": "afterDelay",
+  "editor.lineHeight": 22
+}

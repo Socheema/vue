@@ -1,0 +1,108 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practicing Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      body {
+        background: #eee;
+        max-width: 960px;
+        margin: 20px auto;
+      }
+      p,
+      h3,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        background: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      li.fav {
+        background: #ff9ed2;
+        color: #fff;
+      }
+      .box {
+        padding: 100px;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="showProfile">
+        My name is {{name}} and I am {{age}}yrs old and my hobby is {{hobby}}.
+      </p>
+      <button @click="changeName">Change name</button>
+      <button @click="increaseAge">Increase age</button>
+      <button @click="decreaseAge">Decrease age</button>
+      <button @click="toggleShowProfle">
+        <span v-if="showProfile">Hide Profile</span>
+        <span v-if="!showProfile">Show Profile</span>
+      </button>
+
+      <br />
+      <!-- ==========MOUSE EVENTS============= -->
+
+      <div class="box" @mouseover="handleEvent($event, 5)">Mouse Enter</div>
+      <div class="box" @mouseleave="handleEvent">Mouse Leave</div>
+      <div class="box" @dblclick="handleEvent">Doule Click</div>
+      <div class="box" @mousemove="handleMouseMove">Position = {{x}} {{y}}</div>
+
+      <!-- ===========LOOPING OVER LIST IN AN ARRAY========= -->
+
+      <div>
+        <ul>
+          <li v-for="book in books">
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+            <span> {{book.age}} </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- =============DATA/ATTRIBUTE BINDING=========== -->
+      <a :href="url">twitter</a>
+      <div>
+        <ul>
+          <li v-for="book in books">
+            <img :src="book.img" alt="book.title" />
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+            <span> {{book.age}} </span>
+          </li>
+        </ul>
+      </div>
+      <!-- =============DYNAMIC CLASSES=============== -->
+
+      <div>
+        <ul>
+          <li
+            v-for="book in books"
+            b
+            v-bind:class="{fav: book.isFav}"
+            @click="isFavToggle(book)"
+          >
+            <img :src="book.img" alt="book.title" />
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+            <span> {{book.age}} </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
